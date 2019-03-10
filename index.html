@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-hk">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -72,7 +72,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Gemini',
     version: '7.0.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
@@ -97,12 +97,12 @@
 
 
   <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Libretta的博客">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:site_name" content="Libretta的博客">
+<meta property="og:locale" content="zh-hk">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Libretta的博客">
 
 
 
@@ -119,7 +119,7 @@
   };
 </script>
 
-  <title>Hexo</title>
+  <title>Libretta的博客</title>
   
 
 
@@ -160,7 +160,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-hk">
 
   
   
@@ -179,7 +179,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
+        <span class="site-title">Libretta的博客</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -243,9 +243,6 @@
   
 
   
-    
-
-  
 
   
 </nav>
@@ -265,6 +262,9 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
           
           <div id="content" class="content">
             
@@ -288,13 +288,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/10/RQM算法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="hlxQAQ">
       <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="Libretta的博客">
     </span>
 
     
@@ -330,7 +330,7 @@
                 
               
 
-              <time title="Post created: 2019-03-10 13:11:00 / Updated at: 14:19:37" itemprop="dateCreated datePublished" datetime="2019-03-10T13:11:00+08:00">2019-03-10</time>
+              <time title="Post created: 2019-03-10 13:11:00 / Updated at: 16:09:01" itemprop="dateCreated datePublished" datetime="2019-03-10T13:11:00+08:00">2019-03-10</time>
             
 
             
@@ -371,18 +371,18 @@
       
         
           
-            <p>####定义<br>RMQ (Range Minimum/Maximum Query)问题是求区间最值的问题。</p>
+            <h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>RMQ (Range Minimum/Maximum Query)问题是求区间最值的问题。</p>
 <hr>
-<p>###主要方法    <code>均为在线算法</code><br>1、朴素（即搜索），O(n)-O(qn)<br>2、线段树，O(n)-O(qlogn)<br>3、ST，(实质是动态规划）O(nlogn)-O(q)<br>4、RMQ标准算法，先规约成LCA，再规约成约束RMQ，O(n)-O(q)</p>
+<h3 id="主要方法-均为在线算法"><a href="#主要方法-均为在线算法" class="headerlink" title="主要方法   均为在线算法"></a>主要方法   <code>均为在线算法</code></h3><p>1、朴素（即搜索），O(n)-O(qn)<br>2、线段树，O(n)-O(qlogn)<br>3、ST，(实质是动态规划）O(nlogn)-O(q)<br>4、RMQ标准算法，先规约成LCA，再规约成约束RMQ，O(n)-O(q)</p>
 <hr>
-<p>###线段树算法<br>用线段树实现的RMQ算法不仅可以查询区间最值,还可以更改某个节点的值<br><del>直接套线段树模板</del></p>
+<h3 id="线段树算法"><a href="#线段树算法" class="headerlink" title="线段树算法"></a>线段树算法</h3><p>用线段树实现的RMQ算法不仅可以查询区间最值,还可以更改某个节点的值<br><del>直接套线段树模板</del></p>
 <hr>
-<p>###RMQ标准算法<br>首先根据原数列，建立笛卡尔树，从而将问题在线性时间内规约为LCA问题。LCA问题可以在线性时间内规约为约束RMQ，也就是数列中任意两个相邻的数的差都是+1或-1的RMQ问题。约束RMQ有O(n)-O(1)的在线解法，故整个算法的时间复杂度为O(n)-O(1)。</p>
+<h3 id="RMQ标准算法"><a href="#RMQ标准算法" class="headerlink" title="RMQ标准算法"></a>RMQ标准算法</h3><p>首先根据原数列，建立笛卡尔树，从而将问题在线性时间内规约为LCA问题。LCA问题可以在线性时间内规约为约束RMQ，也就是数列中任意两个相邻的数的差都是+1或-1的RMQ问题。约束RMQ有O(n)-O(1)的在线解法，故整个算法的时间复杂度为O(n)-O(1)。</p>
 <hr>
-<p>###ST算法<br>ST算法（Sparse Table），以求最大值为例，d [ i , j ]表示以i 为起点的长度为 2^j 的区间  <strong>[ i , i + 2^j - 1]</strong> ，那么在询问到[a,b]区间的最大值时答案就是 <strong>max (   d [ a , k ],  d [ b - 2^k + 1 , k ]   )</strong>，k是满足 <strong>2^k&lt;=b-a+1</strong> (即长度)的最大的k,即<strong>k= [ ln ( b - a + 1 ) / ln( 2 ) ]</strong>。<br><code>d[i,j]=max(d[i,j-1],d[i+2^(j-1),j-1])</code></p>
+<h3 id="ST算法"><a href="#ST算法" class="headerlink" title="ST算法"></a>ST算法</h3><p>ST算法（Sparse Table），以求最大值为例，d [ i , j ]表示以i 为起点的长度为 2^j 的区间  <strong>[ i , i + 2^j - 1]</strong> ，那么在询问到[a,b]区间的最大值时答案就是 <strong>max (   d [ a , k ],  d [ b - 2^k + 1 , k ]   )</strong>，k是满足 <strong>2^k&lt;=b-a+1</strong> (即长度)的最大的k,即<strong>k= [ ln ( b - a + 1 ) / ln( 2 ) ]</strong>。<br><code>d[i,j]=max(d[i,j-1],d[i+2^(j-1),j-1])</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">void rmq_init()&#123;//预处理</span><br><span class="line">	for(int i=1;i&lt;=N;i++)</span><br><span class="line">		dp[i][0]=a[i];</span><br><span class="line">	for(int j=1;j&lt;=N;j++)</span><br><span class="line">		for(int i=1;i+(1&lt;&lt;j)-1&lt;=N;i++)</span><br><span class="line">			dp[i][j]=min(dp[i][j-1],dp[i+1&lt;&lt;(j-1)][j-1]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">void rmq(int l,int r)&#123;</span><br><span class="line">	int k=log2(r-l+1);</span><br><span class="line">	return min(dp[l][k],dp[r-(l&lt;&lt;k)+1][k]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><br><br> <br> <br> <br> <br>  <br><br><br><br><br><br><br><br><br><br><br><br>[参考]<br>百科 <a href="https://baike.baidu.com/item/RQM/9736833" target="_blank" rel="noopener">https://baike.baidu.com/item/RQM/9736833</a><br>OIWIKI <a href="https://oi-wiki.org/ds/sparse-table/#rmq" target="_blank" rel="noopener">https://oi-wiki.org/ds/sparse-table/#rmq</a><br>rqm算法的ST实现 <a href="https://www.cnblogs.com/YSFAC/p/7189571.html" target="_blank" rel="noopener">https://www.cnblogs.com/YSFAC/p/7189571.html</a></p>
+<p><br><br> <br> <br> <br> <br>  <br><br><br><br><br><br><br>[参考]<br>百科 <a href="https://baike.baidu.com/item/RQM/9736833" target="_blank" rel="noopener">https://baike.baidu.com/item/RQM/9736833</a><br>OIWIKI <a href="https://oi-wiki.org/ds/sparse-table/#rmq" target="_blank" rel="noopener">https://oi-wiki.org/ds/sparse-table/#rmq</a><br>rqm算法的ST实现 <a href="https://www.cnblogs.com/YSFAC/p/7189571.html" target="_blank" rel="noopener">https://www.cnblogs.com/YSFAC/p/7189571.html</a></p>
 
           
         
@@ -456,7 +456,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-author-name" itemprop="name">hlxQAQ</p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
@@ -527,7 +527,7 @@
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">hlxQAQ</span>
 
   
 
@@ -543,7 +543,7 @@
 
 
 
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.0.0</div>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.0</div>
 
 
 
@@ -631,7 +631,10 @@
   
 
 
-  <script src="/js/src/schemes/muse.js?v=7.0.0"></script>
+  <script src="/js/src/affix.js?v=7.0.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.0"></script>
+
 
 
 
