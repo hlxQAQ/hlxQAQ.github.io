@@ -11,7 +11,7 @@
 
     <title>
         
-        RQM算法 - undefined
+        RQM算法 - Libretta
         
     </title>
 
@@ -45,7 +45,7 @@
 <div class="nav" id="nav">
     <div class="avatar-name">
         <div class="avatar">
-            <img src="/">
+            <img src="/img/avatar.jpg">
         </div>
         <div class="name">
             <i>hlxQAQ</i>
@@ -82,8 +82,8 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#定义"><span class="toc-text">定义</span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#主要方法-均为在线算法"><span class="toc-text">主要方法   均为在线算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线段树算法"><span class="toc-text">线段树算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RMQ标准算法"><span class="toc-text">RMQ标准算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ST算法"><span class="toc-text">ST算法</span></a>
-</li></div>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主要方法-均为在线算法"><span class="toc-text">主要方法   均为在线算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线段树算法"><span class="toc-text">线段树算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RMQ标准算法"><span class="toc-text">RMQ标准算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ST算法"><span class="toc-text">ST算法</span></a></li></ol>
+</div>
     
 </div>
 
@@ -129,8 +129,8 @@
 </span>
 
     </div>
-    <div class="post-content ">
-        <h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>RMQ (Range Minimum/Maximum Query)问题是求区间最值的问题。</p>
+    <div class="post-content no-indent">
+        <h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>RMQ (Range Minimum/Maximum Query)问题是求区间最值的问题。</p>
 <hr>
 <h3 id="主要方法-均为在线算法"><a href="#主要方法-均为在线算法" class="headerlink" title="主要方法   均为在线算法"></a>主要方法   <code>均为在线算法</code></h3><p>1、朴素（即搜索），O(n)-O(qn)<br>2、线段树，O(n)-O(qlogn)<br>3、ST，(实质是动态规划）O(nlogn)-O(q)<br>4、RMQ标准算法，先规约成LCA，再规约成约束RMQ，O(n)-O(q)</p>
 <hr>
@@ -139,9 +139,9 @@
 <h3 id="RMQ标准算法"><a href="#RMQ标准算法" class="headerlink" title="RMQ标准算法"></a>RMQ标准算法</h3><p>首先根据原数列，建立笛卡尔树，从而将问题在线性时间内规约为LCA问题。LCA问题可以在线性时间内规约为约束RMQ，也就是数列中任意两个相邻的数的差都是+1或-1的RMQ问题。约束RMQ有O(n)-O(1)的在线解法，故整个算法的时间复杂度为O(n)-O(1)。</p>
 <hr>
 <h3 id="ST算法"><a href="#ST算法" class="headerlink" title="ST算法"></a>ST算法</h3><p>ST算法（Sparse Table），以求最大值为例，d [ i , j ]表示以i 为起点的长度为 2^j 的区间  <strong>[ i , i + 2^j - 1]</strong> ，那么在询问到[a,b]区间的最大值时答案就是 <strong>max (   d [ a , k ],  d [ b - 2^k + 1 , k ]   )</strong>，k是满足 <strong>2^k&lt;=b-a+1</strong> (即长度)的最大的k,即<strong>k= [ ln ( b - a + 1 ) / ln( 2 ) ]</strong>。<br><code>d[i,j]=max(d[i,j-1],d[i+2^(j-1),j-1])</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">void rmq_init()&#123;//预处理</span><br><span class="line">	for(int i=1;i&lt;=N;i++)</span><br><span class="line">		dp[i][0]=a[i];</span><br><span class="line">	for(int j=1;j&lt;=N;j++)</span><br><span class="line">		for(int i=1;i+(1&lt;&lt;j)-1&lt;=N;i++)</span><br><span class="line">			dp[i][j]=min(dp[i][j-1],dp[i+1&lt;&lt;(j-1)][j-1]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">void rmq(int l,int r)&#123;</span><br><span class="line">	int k=log2(r-l+1);</span><br><span class="line">	return min(dp[l][k],dp[r-(l&lt;&lt;k)+1][k]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><br><br> <br> <br> <br> <br>  <br><br><br><br><br><br><br>[参考]<br>百科 <a href="https://baike.baidu.com/item/RQM/9736833" target="_blank" rel="noopener">https://baike.baidu.com/item/RQM/9736833</a><br>OIWIKI <a href="https://oi-wiki.org/ds/sparse-table/#rmq" target="_blank" rel="noopener">https://oi-wiki.org/ds/sparse-table/#rmq</a><br>rqm算法的ST实现 <a href="https://www.cnblogs.com/YSFAC/p/7189571.html" target="_blank" rel="noopener">https://www.cnblogs.com/YSFAC/p/7189571.html</a></p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">void rmq_init()&#123;<span class="comment">//预处理</span></span><br><span class="line">	for(int i=<span class="number">1</span>;i&lt;=N;i++)</span><br><span class="line">		dp[i][<span class="number">0</span>]=a[i];</span><br><span class="line">	for(int j=<span class="number">1</span>;j&lt;=N;j++)</span><br><span class="line">		for(int i=<span class="number">1</span>;i+(<span class="number">1</span>&lt;&lt;j)<span class="number">-1</span>&lt;=N;i++)</span><br><span class="line">			dp[i][j]=min(dp[i][j<span class="number">-1</span>],dp[i+<span class="number">1</span>&lt;&lt;(j<span class="number">-1</span>)][j<span class="number">-1</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> rmq(<span class="type">int</span> l,<span class="type">int</span> r)&#123;</span><br><span class="line">	<span class="type">int</span> k=<span class="built_in">log2</span>(r-l+<span class="number">1</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">min</span>(dp[l][k],dp[r-(l&lt;&lt;k)+<span class="number">1</span>][k]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br><br><br><br><br><br><br><br><br><br>[参考]<br>百科 <a href="https://baike.baidu.com/item/RQM/9736833" target="_blank" rel="noopener">https://baike.baidu.com/item/RQM/9736833</a><br>OIWIKI <a href="https://oi-wiki.org/ds/sparse-table/#rmq" target="_blank" rel="noopener">https://oi-wiki.org/ds/sparse-table/#rmq</a><br>rqm算法的ST实现 <a href="https://www.cnblogs.com/YSFAC/p/7189571.html" target="_blank" rel="noopener">https://www.cnblogs.com/YSFAC/p/7189571.html</a></p>
 
         
         <br>
@@ -168,6 +168,14 @@
 
         
 
+        
+        <li>
+            <a target="_blank" href="https://github.com/hlxQAQ">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
         
 
         
