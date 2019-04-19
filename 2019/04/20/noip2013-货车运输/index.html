@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content>
+    <meta name="keyword" content>
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        [noip2013]货车运输 - Libretta
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> God bless u </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg">
+        </div>
+        <div class="name">
+            <i>Libretta</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li>
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input">
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> God bless u </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        [noip2013]货车运输
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2019-04-20 07:54:34</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#noip" title="noip">noip</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#LCA" title="LCA">LCA</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#倍增" title="倍增">倍增</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#最小生成树" title="最小生成树">最小生成树</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+
+    </div>
+    <div class="post-content no-indent">
+        <p>###1.1【题目】<br>A国有n座城市，编号从 1到n，城市之间有 m 条双向道路。每一条道路对车辆都有重量限制，简称限重。现在有 q 辆货车在运输货物， 司机们想知道每辆车在不超过车辆限重的情况下，最多能运多重的货物。</p>
+<p>第一行两个整数n,m，有n 座城市和 m 条道路。<br>接下来 m行每行3个整数 x, y, z，表示从 x号城市到y号城市有一条限重为 z的道路。（注意： x 不等于 y，两座城市之间可能有多条道路 。）<br>接下来一行有一个整数 q，表示有 q 辆货车需要运货。<br>接下来 q 行，每行两个整数 x、y，之间用一个空格隔开，表示一辆货车需要从 x 城市运输货物到 y 城市，注意： x 不等于 y 。</p>
+<p>每行一个整数，表示每一辆货车最大载重。如不能到达，输出-1。</p>
+<p><a href="https://www.luogu.org/problemnew/show/P1967" target="_blank" rel="noopener">洛谷 P1967</a></p>
+<hr>
+<p>###1.2【基本思路】<br>最大生成树+ 树剖LCA<br>如何用树剖求两点权值最小<br>在树剖一番蹂躏之下决定改用倍增 顺便和从没写过的倍增LCA培养一下感情<br>——于是思路变成了<br>最大生成树+ 倍增LCA</p>
+<hr>
+<p>###1.3【笔记】<br>先上最大生成树模板，因为图可能不联通，于是对每一棵树都进行LCA，极值的查询即在倍增的同时维护一个最小数组，记录这段路程中的最小路径值<br>    • 查找每棵树即枚举所有端点，将每个并查集的最大祖先（f [i] = i）都进行一遍预处理<br>    • LCA时不要忘记最后比较x,y与父节点的边的权值！！！<br>    • 忘看数据范围RE出奇迹(._. )<br>    • po一下卡了很久的LCA求路径最值部分<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">inline int lca2(int x,int y)&#123;</span><br><span class="line">        int ans=1e7;</span><br><span class="line">        if(deep[x]&gt;deep[y])swap(x,y);</span><br><span class="line">        for(int i=20;i&gt;=0;i--)&#123;</span><br><span class="line">                if(deep[<span class="string">fa[y</span>][<span class="symbol">i</span>]]&gt;=deep[<span class="string">x</span>])ans=min(minn[<span class="string">y</span>][<span class="symbol">i</span>],ans),y=fa[<span class="string">y</span>][<span class="symbol">i</span>];</span><br><span class="line">                if(x==y)return ans;</span><br><span class="line">        &#125;</span><br><span class="line">        for(int i=20;i&gt;=0;i--)&#123;</span><br><span class="line">                if(fa[<span class="string">x</span>][<span class="symbol">i</span>]!=fa[<span class="string">y</span>][<span class="symbol">i</span>])</span><br><span class="line">                        ans=min(minn[<span class="string">x</span>][<span class="symbol">i</span>],ans),ans=min(minn[<span class="string">y</span>][<span class="symbol">i</span>],ans),</span><br><span class="line">                        x=fa[<span class="string">x</span>][<span class="symbol">i</span>],y=fa[<span class="string">y</span>][<span class="symbol">i</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        return min(min(minn[<span class="string">x</span>][<span class="symbol">0</span>],minn[<span class="string">y</span>][<span class="symbol">0</span>]),ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>###1.4【倍增板子】<br>事实上还是第一次写倍增LCA<br>于是这里po一下倍增模板及伪代码<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"> 调用 pre_treat(<span class="keyword">begin</span>,<span class="keyword">begin</span>) 	//暂时不清楚和pre_treat(<span class="keyword">begin</span>,<span class="number">0</span>)有什么区别</span><br><span class="line"><span class="built_in">void</span> pre_treat (<span class="built_in">int</span> 当前节点,<span class="built_in">int</span> 父节点)</span><br><span class="line">	deep[当前节点]=depe[父]+<span class="number">1</span>；</span><br><span class="line">	fa[当前节点][<span class="number">0</span>]=从这里向上跳一步=他爸爸；</span><br><span class="line">	<span class="keyword">for</span> ( <span class="built_in">int</span> i=<span class="number">1</span> <span class="keyword">to</span> <span class="number">20</span></span><br><span class="line">	      fa [ 当前节点 ][ i ]=fa[从这里向上跳<span class="number">2</span>^(i<span class="number">-1</span>)的节点][再向上跳<span class="number">2</span>^(i<span class="number">-1</span>)步]</span><br><span class="line">	<span class="keyword">for</span>(<span class="built_in">int</span> i=h[u]......)</span><br><span class="line">	      v=e[i].to 枚举下一个节点</span><br><span class="line">	      <span class="keyword">if</span>(这节点不是他父亲)pre_treat(<span class="built_in">int</span> 搜到的节点,<span class="built_in">int</span> (将做爸爸的)当前节点)</span><br><span class="line"></span><br><span class="line"><span class="built_in">void</span> lca(<span class="built_in">int</span> 友人a ,<span class="built_in">int</span> 友人b)</span><br><span class="line">	将友人a定为深度浅的那位；</span><br><span class="line">	<span class="keyword">for</span>(<span class="built_in">int</span> i= <span class="number">20</span> <span class="keyword">to</span> <span class="number">0</span></span><br><span class="line">	       <span class="keyword">if</span>(友人b向上跳<span class="number">2</span>^i次也跳不到a的头上)</span><br><span class="line">		请友人b表演向上跳；</span><br><span class="line">	       <span class="keyword">if</span>(可巧友人b和a跑到了同一点)</span><br><span class="line">		结束；</span><br><span class="line">	 &#125;</span><br><span class="line">		//跳出该循环后，此时a与b应该在同一深度的不同节点</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">20</span> <span class="keyword">to</span> <span class="number">0</span></span><br><span class="line">	       <span class="keyword">if</span>(a和b同时向上<span class="number">2</span>^i个节点却未相遇)</span><br><span class="line">		向上跳；</span><br><span class="line">	 &#125;</span><br><span class="line">公共祖先即 当前友人a和b的父节点</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">void pre_treat(int u,int father)&#123;</span><br><span class="line">	deep[u]=deep[father]+<span class="number">1</span>;</span><br><span class="line">	f[u][<span class="number">0</span>]=father;</span><br><span class="line">	<span class="keyword">for</span>(int <span class="built_in">i</span>=<span class="number">1</span>;<span class="built_in">i</span>&lt;=<span class="number">20</span>;<span class="built_in">i</span>++)&#123;</span><br><span class="line">		f[u][<span class="built_in">i</span>]=f[f[u][<span class="built_in">i</span><span class="number">-1</span>]][<span class="built_in">i</span><span class="number">-1</span>];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(int <span class="built_in">i</span>=h[u];<span class="built_in">i</span>;<span class="built_in">i</span>=e[<span class="built_in">i</span>].nex)&#123;</span><br><span class="line">		int v=e[<span class="built_in">i</span>].to;</span><br><span class="line">		<span class="keyword">if</span>(v!=father)First(v,u);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">inline int lca(int a,int b)&#123;</span><br><span class="line">	<span class="keyword">if</span>(deep[a]&gt;deep[b])swap(a,b);</span><br><span class="line">	<span class="keyword">for</span>(int <span class="built_in">i</span>=<span class="number">20</span>;<span class="built_in">i</span>&gt;=<span class="number">0</span>;<span class="built_in">i</span>--)&#123;</span><br><span class="line">		<span class="keyword">if</span>(deep[f[b][<span class="built_in">i</span>]]&gt;=deep[a])</span><br><span class="line">			y=f[b][<span class="built_in">i</span>];</span><br><span class="line">		<span class="keyword">if</span>(a==b)<span class="keyword">return</span> a;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(int <span class="built_in">i</span>=<span class="number">20</span>;<span class="built_in">i</span>&gt;=<span class="number">0</span>;<span class="built_in">i</span>--)&#123;</span><br><span class="line">		<span class="keyword">if</span>(f[a][<span class="built_in">i</span>]!=f[b][<span class="built_in">i</span>])</span><br><span class="line">			x=f[a][<span class="built_in">i</span>],y=f[b][<span class="built_in">i</span>];</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> f[a][<span class="number">0</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>###1.5【小结】<br>生成树和倍增模板+额外维护一个答案数组……quq为啥当初我就做不出来呢<br>以及貌似还有kruskal重构树+LCA , 树剖+线段树 等解法<br>以后要多多注意细节问题。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 100010</span></span><br><span class="line"><span class="keyword">int</span> n,f[N],cnt,k,m,q;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">play</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> x,y,l;</span><br><span class="line">&#125;;play h[N];</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">play2</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> fr,to,w,nex;</span><br><span class="line">&#125;;play2 e[N];</span><br><span class="line"><span class="keyword">int</span> fa[N][<span class="number">30</span>],minn[N][<span class="number">30</span>],num,he[N],deep[N];</span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">cmp1</span><span class="params">(play a,play b)</span></span>&#123;<span class="keyword">return</span> a.l&gt;b.l;&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;<span class="keyword">if</span>(x!=f[x])f[x]=find(f[x]);	<span class="keyword">return</span> f[x];&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;x=find(x),y=find(y);	f[y]=x;&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y,<span class="keyword">int</span> w)</span></span>&#123;</span><br><span class="line">	e[++num].nex=he[x];</span><br><span class="line">	e[num].to=y;</span><br><span class="line">	e[num].fr=x;</span><br><span class="line">	e[num].w=w;</span><br><span class="line">	he[x]=num;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">First</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> father,<span class="keyword">int</span> fre)</span></span>&#123;</span><br><span class="line">	deep[u]=deep[father]+<span class="number">1</span>;</span><br><span class="line">	fa[u][<span class="number">0</span>]=father;</span><br><span class="line">	minn[u][<span class="number">0</span>]=fre;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">20</span>;i++)&#123;</span><br><span class="line">		fa[u][i]=fa[fa[u][i<span class="number">-1</span>]][i<span class="number">-1</span>];</span><br><span class="line">		minn[u][i]=min(minn[fa[u][i<span class="number">-1</span>]][i<span class="number">-1</span>],minn[u][i<span class="number">-1</span>]);<span class="comment">////////...</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=he[u];i;i=e[i].nex)&#123;</span><br><span class="line">		<span class="keyword">int</span> vi=e[i].to;</span><br><span class="line">		<span class="keyword">if</span>(vi!=father)fa[vi][<span class="number">0</span>]=u,First(vi,u,e[i].w);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">lca2</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> ans=<span class="number">1e7</span>;</span><br><span class="line">	<span class="keyword">if</span>(deep[x]&gt;deep[y])swap(x,y);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">20</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">		<span class="keyword">if</span>(deep[fa[y][i]]&gt;=deep[x])</span><br><span class="line">			ans=min(minn[y][i],ans),y=fa[y][i];</span><br><span class="line">		<span class="keyword">if</span>(x==y)<span class="keyword">return</span> ans;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">20</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">		<span class="keyword">if</span>(fa[x][i]!=fa[y][i])</span><br><span class="line">			ans=min(minn[x][i],ans),</span><br><span class="line">			ans=min(minn[y][i],ans),</span><br><span class="line">			x=fa[x][i],y=fa[y][i];</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> min(min(minn[x][<span class="number">0</span>],minn[y][<span class="number">0</span>]),ans);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">lca</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;q);</span><br><span class="line">	<span class="keyword">while</span>(q--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> a,b,c;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;a,&amp;b);</span><br><span class="line">		<span class="keyword">if</span>(find(a)!=find(b))</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"-1\n"</span>);</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		c=lca2(a,b);</span><br><span class="line">		<span class="keyword">if</span>(c&lt;=<span class="number">0</span>||c&gt;=<span class="number">1e7</span>)<span class="built_in">printf</span>(<span class="string">"-1\n"</span>);</span><br><span class="line">		<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,c);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">scs</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">		cnt++;</span><br><span class="line">		<span class="built_in">cin</span>&gt;&gt;h[cnt].x&gt;&gt;h[cnt].y&gt;&gt;h[cnt].l;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)f[i]=i;</span><br><span class="line">	sort(h+<span class="number">1</span>,h+<span class="number">1</span>+m,cmp1);</span><br><span class="line">	<span class="keyword">int</span> tmp=min(n<span class="number">-1</span>,m);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(find(h[i].x)!=find(h[i].y))</span><br><span class="line">		&#123;</span><br><span class="line">			merge(h[i].x,h[i].y);</span><br><span class="line">			add(h[i].x,h[i].y,h[i].l);</span><br><span class="line">			add(h[i].y,h[i].x,h[i].l);</span><br><span class="line">			k++;</span><br><span class="line">			<span class="keyword">if</span>(k==tmp)<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(f[i]==i) First(i,i,<span class="number">1e7</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	scs();</span><br><span class="line">	lca();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+        
+        <br>
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank" href="https://github.com/hlxQAQ">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
